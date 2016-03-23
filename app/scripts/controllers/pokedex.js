@@ -18,6 +18,7 @@ angular.module('kotansApp')
       // $scope.pocemons = angular.copy(res.data.objects);
     });
     self.morePocemons = function (next) {
+      self.pocemons = null;
       pocemons.getPocemons(next).then(function(res){
         self.next = angular.copy(res.data.meta.next);
         self.pocemons = angular.copy(res.data.objects);
