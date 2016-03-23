@@ -10,7 +10,8 @@
 module.exports = function (grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
-  require('time-grunt')(grunt);
+  require('load-grunt-tasks')(grunt);
+  // require('time-grunt')(grunt);
 
   // Automatically load required Grunt tasks
   require('jit-grunt')(grunt, {
@@ -220,7 +221,7 @@ module.exports = function (grunt) {
             }
           }
       }
-    }, 
+    },
 
     // Renames files for browser caching purposes
     filerev: {
@@ -423,7 +424,21 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
-    }
+    },
+    buildcontrol: {
+      options: {
+        dir: 'dist',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
+      pages: {
+        options: {
+          remote: 'git@github.com:kaflan/kottansTest.git',
+          branch: 'gh-pages'
+        }
+      }
+    },
   });
 
 
@@ -471,7 +486,8 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'buildcontrol'
   ]);
 
   grunt.registerTask('default', [
