@@ -8,8 +8,8 @@
  * Controller of the kotansApp
  */
 angular.module('kotansApp')
-  .controller('PokemonInfoCtrl', function() {
+  .controller('PokemonInfoCtrl', function($scope) {
     var self = this;
     self.name = 'PokemonInfoCtrl';
-          // console.log(this);
+    
   });

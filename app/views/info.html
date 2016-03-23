@@ -1,9 +1,54 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <img ng-src="http://pokeapi.co/media/img/{{self.national_id}}.png" style="width:150px;" alt="" />
+    <img ng-src="http://pokeapi.co/media/img/{{self.info.national_id}}.png" style="width:150px;" alt="" class="center-block"/>
+    <h1 class="text-center">{{self.info.name}} #{{self.info.national_id}}</h1>
   </div>
   <div class="panel-body">
-    Panel content
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>
+            Type
+          </th>
+          <th ng-repeat="abil in self.info.types">
+            {{abil.name}}
+          </th>
+        </tr>
+        <tr>
+          <th>Attack</th>
+          <th>{{self.info.attack}}</th>
+        </tr>
+        <tr>
+          <th>Deffense</th>
+          <th>{{self.info.defense}}</th>
+        </tr>
+        <tr>
+          <th>HP</th>
+          <th>{{self.info.hp}}</th>
+        </tr>
+        <tr>
+          <th>SP attack</th>
+          <th>{{self.info.sp_atk}}</th>
+        </tr>
+        <tr>
+          <th>SP defense</th>
+          <th>{{self.info.sp_def}}</th>
+        </tr>
+        <tr>
+          <th>Speed</th>
+          <th>{{self.info.speed}}</th>
+        </tr>
+        <tr>
+          <th>Weight</th>
+          <th>{{self.info.weight}}</th>
+        </tr>
+        <tr>
+          <th>Total moves</th>
+          <th>{{self.info.moves.length}}</th>
+        </tr>
+      </thead>
+
+    </table>
   </div>
   <div class="panel-footer"></div>
 </div>

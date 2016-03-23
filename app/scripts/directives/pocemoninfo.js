@@ -9,21 +9,23 @@
 angular.module('kotansApp')
   .directive('info', function() {
     return {
-      require: 'ngModel',
-      replace: true,
-      transclude: true,
+      // require: '^pokedex',
+      // replace: true,
+      // transclude: true,
       templateUrl: 'views/info.html',
       controller: 'PokemonInfoCtrl',
       restrict: 'E',
       controllerAs: 'self',
       scope: {
-        pocemInfo: '='
+        information: '='
       },
-      link: function(scope, element, attrs, ngModel) {
-        console.log(ngModel, scope) //'myCtrl'
-        scope.$watch("self.pocemonInfo", function(oldVal, newVal) {
-               console.log(oldVal, newVal);
-           }, true);
+      link: function(scope, element, attrs, ctrl) {
+        scope.$watch('information', function(val1, val2){
+          if(typeof val1 !== 'undefined'){
+            ctrl.info = scope.information;
+          }
+        },true);
+
       }
-    };
+    }
   });

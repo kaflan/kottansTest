@@ -7,7 +7,15 @@
  * # pocemonInfo
  * Service in the kotansApp.
  */
+ var obj = {}
 angular.module('kotansApp')
-  .service('pocemonInfo', function () {
-    // AngularJS will instantiate a singleton by calling "new" on this function
+  .factory('pocemonInfo', function () {
+   return {
+     savePocemon: function(pocemon){
+        obj = angular.copy(pocemon);
+     },
+     loadPocemon: function() {
+       return obj;
+     }
+   }
   });

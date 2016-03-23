@@ -22,6 +22,6 @@ angular.module('kotansApp')
       });
     }
     self.seePocemonDetails = function(pocemon){
-        self.pocemonInfo = pocemon;
+        self.info = angular.copy(pocemon);
     };
   });
