@@ -1,0 +1,38 @@
+<div class="container">
+  <h1 class="text-center panel panel-default">Pokedex</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="">
+        <div class="col-sm-4" ng-repeat="pocemon in self.pocemons"  ng-click="self.seePocemonDetails(pocemon)">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <img ng-src="http://pokeapi.co/media/img/{{pocemon.national_id}}.png" style="width:150px;" alt="">
+            </div>
+            <div class="panel-body">
+              {{pocemon.name}}
+            </div>
+            <div class="panel-heading">
+              <ul class="list-inline">
+                <li ng-repeat="abil in pocemon.types">
+                  <span class="type">{{abil.name}} </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="col-sm-2">
+    <!--  -->
+    <info ng-show="self.pocemonInfo" data-info-pocemon="{{self.pocemonInfo}}" pocemInfo="{{self.pocemonInfo}}" ng-model="self.pocemonInfo"></info>
+  </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <aside class="">
+      <button type="button" class="col-sm-8 btn btn-primary btn-lg" ng-click='self.morePocemons(self.next)'>Load More</button>
+    </aside>
+  </div>
