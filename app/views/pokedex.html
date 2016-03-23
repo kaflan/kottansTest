@@ -1,7 +1,11 @@
 <div class="container">
   <h1 class="text-center panel panel-default">Pokedex</h1>
 </div>
-<div class="container">
+<div ng-hide="self.preloader" >
+  <img class="center-block" src="http://www.code-hound.com/wp-content/uploads/2014/07/preloader.gif" alt="rubiks cube preloader" width="64" height="64" class="size-full wp-image-149">
+  <h2 class="text-center"> loading pocemons wait</h2>
+</div>
+<div class="container" ng-show="self.preloader">
   <div class="row">
     <div class="col-sm-8">
       <div class="">
@@ -31,7 +35,7 @@
 </div>
 <div class="container">
   <div class="row">
-    <aside class="">
+    <aside>
       <button type="button" class="col-sm-8 btn btn-primary btn-lg" ng-click='self.morePocemons(self.next)'>Load More</button>
     </aside>
   </div>
