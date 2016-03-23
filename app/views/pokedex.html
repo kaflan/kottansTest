@@ -36,6 +36,6 @@
 <div class="container">
   <div class="row">
     <aside>
-      <button type="button" class="col-sm-8 btn btn-primary btn-lg" ng-click='self.morePocemons(self.next)' ng-if="self.pocemons">Load More</button>
+      <button type="button" class="col-sm-8 btn btn-primary btn-lg" ng-click='self.morePocemons(self.next)' ng-hide="!self.preloader">Load More</button>
     </aside>
   </div>
